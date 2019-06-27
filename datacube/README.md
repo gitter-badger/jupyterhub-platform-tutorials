@@ -15,7 +15,7 @@ helm repo add jupyterhub https://jupyterhub.github.io/helm-chart/
 helm repo update
 ```
 
-## Install JupyterHub
+## Install JupyterHub using the Data Cube Docker image
 
 It's necessary to create a *config.yaml* file specific to the Kubernetes cluster where JupyterHub is being deployed. For help doing so, please visit the documentation reference [here](https://zero-to-jupyterhub.readthedocs.io/en/latest/setup-jupyterhub.html) and [here](https://zero-to-jupyterhub.readthedocs.io/en/latest/reference.html#helm-chart-configuration-reference). The [04-config-jhub.yaml.example](examples/configuration/04-config-jhub.yaml.example) file can be used as a quick-reference guide.
 
