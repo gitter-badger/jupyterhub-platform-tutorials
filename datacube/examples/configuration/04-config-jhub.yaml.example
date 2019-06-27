@@ -1,9 +1,8 @@
-# Generate secret with: openssl rand -hex 32
+# Generate a secret token with: openssl rand -hex 32
 proxy:
   secretToken: "### snip01 ###"
 
-# see: https://zero-to-jupyterhub.readthedocs.io/en/latest/user-environment.html#use-jupyterlab-by-default
-#      https://zero-to-jupyterhub.readthedocs.io/en/latest/user-environment.html#using-nbgitpuller-to-synchronize-a-folder
+# See: https://zero-to-jupyterhub.readthedocs.io/en/latest/user-environment.html#using-nbgitpuller-to-synchronize-a-folder
 singleuser:
   image:
     name: luigidifraia/datacube-notebook
@@ -23,12 +22,13 @@ singleuser:
         mountPath: /etc/datacube.conf
         subPath: datacube.conf
 
+# See: https://zero-to-jupyterhub.readthedocs.io/en/latest/user-environment.html#use-jupyterlab-by-default
 hub:
   extraConfig:
     jupyterlab: |
       c.Spawner.cmd = ['jupyter-labhub']
 
-# see: https://zero-to-jupyterhub.readthedocs.io/en/latest/advanced.html#ingress
+# See: https://zero-to-jupyterhub.readthedocs.io/en/latest/advanced.html#ingress
 ingress:
   enabled: true
   hosts:
@@ -36,13 +36,13 @@ ingress:
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
 
-# see: https://zero-to-jupyterhub.readthedocs.io/en/latest/authentication.html#github
+# See: https://zero-to-jupyterhub.readthedocs.io/en/latest/authentication.html#github
 auth:
   type: github
   github:
     clientId: "### snip02 ###"
     clientSecret: "### snip03 ###"
-    callbackUrl: "http://jupyterhub.satapps.org/hub/oauth_callback"
+    callbackUrl: "### snip04 ###"
   admin:
     access: true
     users:
