@@ -193,17 +193,19 @@ Note that it is a very bad idea to include credentials in configurations files, 
 
 ## Cleaning up
 
-If you wish to undo changes to your Kubernetes cluster, simply issue the following commands:
+If you wish to undo changes to your Kubernetes cluster, simply issue the following commands.
 
 ```bash
-helm delete $RELEASE --purge
-kubectl delete -f datacube-configmap.yaml
+helm delete $RELEASE --purge              # optional: deleting the namespace deletes all resources therein
+kubectl delete -f datacube-configmap.yaml # optional
 kubectl delete namespace $NAMESPACE
 
-helm delete $RELEASEDB --purge
+helm delete $RELEASEDB --purge            # optional
 kubectl delete namespace $NAMESPACEDB
 
-helm delete $RELEASEDASK --purge
-kubectl delete -f dask-webui-ingress.yaml
+helm delete $RELEASEDASK --purge          # optional
+kubectl delete -f dask-webui-ingress.yaml # optional
 kubectl delete namespace $NAMESPACEDASK
 ```
+
+WARNING: Removing a namespace is a destructive operation as it removes all Persistent Volumes therein.
