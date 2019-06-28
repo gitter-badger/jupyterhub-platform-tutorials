@@ -22,8 +22,8 @@ It's necessary to create a *config.yaml* file specific to the Kubernetes cluster
 Once a *config.yaml* file is put together, the deployment of JupyterHub can be started with:
 
 ```bash
-RELEASE=jhub
-NAMESPACE=jhub
+RELEASE=datacube
+NAMESPACE=datacube
 
 helm upgrade --install $RELEASE jupyterhub/jupyterhub \
   --namespace $NAMESPACE \
